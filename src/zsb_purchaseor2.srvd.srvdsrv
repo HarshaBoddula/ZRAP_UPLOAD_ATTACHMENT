@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service ZSB_PURCHASEOR2 {
+  expose ZC_HSHT_PURCHASEOR2;
+}

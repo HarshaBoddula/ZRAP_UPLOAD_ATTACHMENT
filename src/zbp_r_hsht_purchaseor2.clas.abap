@@ -1,0 +1,5 @@
+CLASS zbp_r_hsht_purchaseor2 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_hsht_purchaseor2.
+ENDCLASS.
+
+CLASS zbp_r_hsht_purchaseor2 IMPLEMENTATION.
+ENDCLASS.

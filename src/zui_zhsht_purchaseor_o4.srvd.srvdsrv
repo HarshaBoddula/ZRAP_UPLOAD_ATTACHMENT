@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_HSHT_PURCHASEOR'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_HSHT_PURCHASEOR'
+  }
+}
+define service ZUI_ZHSHT_PURCHASEOR_O4 provider contracts odata_v4_ui {
+  expose ZC_HSHT_PURCHASEOR;
+}

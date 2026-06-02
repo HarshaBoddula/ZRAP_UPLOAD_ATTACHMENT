@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_HSHT_PURCHASEOR'
+@MappingRole: true
+define role ZC_HSHT_PURCHASEOR {
+  grant select on ZC_HSHT_PURCHASEOR
+  where INHERITING CONDITIONS FROM ENTITY ZR_HSHT_PURCHASEOR REPLACING { ROOT WITH _BaseEntity };
+}

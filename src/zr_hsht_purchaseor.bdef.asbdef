@@ -1,0 +1,56 @@
+managed implementation in class ZBP_R_HSHT_PURCHASEOR unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_HSHT_PURCHASEOR alias ZrHshtPurchaseor
+persistent table ZHSHT_PURCHASEOR
+extensible
+draft table ZHSHT_PRCHSEOR_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   Po,
+   PoItem;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   Po,
+   PoItem;
+
+
+  create;
+  update;
+  delete;
+
+  action UploadAttachment deep parameter Z_UPLOAD_ATTACHMENT_AE result[1] $self ;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZHSHT_PURCHASEOR corresponding extensible
+  {
+    Po = PO;
+    PoItem = PO_ITEM;
+    Status = STATUS;
+    Attachment = ATTACHMENT;
+    Filename = FILENAME;
+    Mimetype = MIMETYPE;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
